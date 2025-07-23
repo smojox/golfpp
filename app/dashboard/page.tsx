@@ -881,6 +881,13 @@ export default function DashboardPage() {
                   <Map className="h-5 w-5 mr-3" />
                   Manage Courses & Par
                 </Button>
+                <Button
+                  className="w-full justify-start h-12 bg-white hover:bg-blue-50 border border-blue-200 text-blue-700 shadow-sm"
+                  onClick={() => router.push('/admin/users')}
+                >
+                  <Users className="h-5 w-5 mr-3" />
+                  Manage Users
+                </Button>
               </CardContent>
             </Card>
           )}

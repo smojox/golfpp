@@ -72,6 +72,15 @@ const userSchema = new mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user',
   },
+  status: {
+    type: String,
+    enum: ['active', 'inactive', 'banned'],
+    default: 'active'
+  },
+  lastLoginAt: {
+    type: Date,
+    default: null
+  }
 }, {
   timestamps: true,
 })
