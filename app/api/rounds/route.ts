@@ -6,6 +6,11 @@ import Tournament from '@/models/Tournament'
 import User from '@/models/User'
 import Course from '@/models/Course'
 
+// Ensure all models are registered
+Course
+User
+Tournament
+
 async function updateTournamentLeaderboard(tournamentId: string, userId: string, totalScore: number) {
   try {
     const tournament = await Tournament.findById(tournamentId)
@@ -97,6 +102,7 @@ export async function POST(request: NextRequest) {
     console.log('Received round data:', roundData)
     await dbConnect()
 
+
     const round = await Round.create({
       ...roundData,
       userId: token.id,
@@ -129,7 +135,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error creating round:', error)
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', details: error.message },
       { status: 500 }
     )
   }
