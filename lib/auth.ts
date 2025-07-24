@@ -74,6 +74,18 @@ export const {
         session.user.role = token.role as string
       }
       return session
+    },
+    async redirect({ url, baseUrl }) {
+      // Always use the base URL for redirects to avoid localhost issues
+      if (url.startsWith('/')) {
+        return `${baseUrl}${url}`
+      }
+      // If it's a relative URL, prepend baseUrl
+      if (new URL(url).origin === baseUrl) {
+        return url
+      }
+      // Default redirect to base URL
+      return baseUrl
     }
   },
   pages: {
