@@ -5,6 +5,10 @@ import Tournament from '@/models/Tournament'
 import User from '@/models/User'
 import Course from '@/models/Course'
 
+// Ensure all models are registered
+Course
+User
+
 export async function GET(request: NextRequest) {
   try {
     await dbConnect()
