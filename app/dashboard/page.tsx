@@ -676,7 +676,7 @@ const BottomNavigation = ({ currentView, setCurrentView }: any) => (
           key={item.id}
           onClick={() => setCurrentView(item.id)}
           className={`flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${
-            currentView === item.id ? "text-green-600 bg-green-50" : "text-slate-600 hover:text-slate-800"
+            currentView === item.id ? "text-golf-fairway bg-green-50" : "text-slate-600 hover:text-slate-800"
           }`}
         >
           <item.icon className="h-5 w-5" />
@@ -1224,26 +1224,35 @@ export default function DashboardPage() {
 
   return (
     <div className="pb-20 min-h-screen bg-gradient-to-b from-green-50 to-slate-50">
-      <div className="bg-green-600 text-white p-4 pb-8">
+      <div className="bg-golf-fairway text-white p-4 pb-8">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
-            <Avatar className="h-12 w-12 border-2 border-white">
+            <div className="w-12 h-12 relative">
+              <Image src="/pp-cup-logo.png" alt="PP Cup 2026" fill className="object-contain" />
+            </div>
+            <div>
+              <h2 className="font-semibold text-lg">PP CUP 2026</h2>
+              <p className="text-green-100 text-sm">Tournament Dashboard</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <Avatar className="h-10 w-10 border-2 border-white">
               <AvatarImage src={userProfile?.profileImage || "/placeholder.svg"} />
               <AvatarFallback>{session.user?.name?.charAt(0) || 'U'}</AvatarFallback>
             </Avatar>
-            <div>
-              <h2 className="font-semibold">Welcome back, {session.user?.name}</h2>
-              <p className="text-green-100 text-sm">Handicap: {userProfile?.handicap || 0}</p>
+            <div className="text-right">
+              <p className="font-medium text-sm">{session.user?.name}</p>
+              <p className="text-green-100 text-xs">Handicap: {userProfile?.handicap || 0}</p>
             </div>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="text-white"
+              onClick={() => setCurrentView("settings")}
+            >
+              <Settings className="h-5 w-5" />
+            </Button>
           </div>
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="text-white"
-            onClick={() => setCurrentView("settings")}
-          >
-            <Settings className="h-5 w-5" />
-          </Button>
         </div>
 
         <div className="grid grid-cols-3 gap-4">
@@ -1296,7 +1305,7 @@ export default function DashboardPage() {
 
         <div className="grid grid-cols-2 gap-4">
           <Button 
-            className="h-16 bg-green-600 hover:bg-green-700 flex-col" 
+            className="h-16 bg-golf-fairway hover:bg-golf-rough flex-col" 
             onClick={() => setCurrentView("scoring")}
           >
             <Plus className="h-6 w-6 mb-1" />

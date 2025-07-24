@@ -15,6 +15,16 @@ const config: Config = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+  			// Golf-themed colors based on PP CUP imagery
+  			golf: {
+  				'course': '#22c55e', // Fresh golf green
+  				'fairway': '#16a34a', // Deeper course green
+  				'rough': '#15803d', // Dark green for rough
+  				'sand': '#f59e0b', // Sand trap gold
+  				'sky': '#0ea5e9', // Course sky blue
+  				'metallic': '#a16207', // Bronze/gold metallic from logo
+  				'pigeon': '#64748b', // Pigeon grey from logo
+  			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

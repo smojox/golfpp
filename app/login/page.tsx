@@ -74,17 +74,29 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-slate-100 flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-sm space-y-6">
+    <div className="min-h-screen relative flex flex-col items-center justify-center p-4">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="/golf-background.png" 
+          alt="Golf Course Background" 
+          fill 
+          className="object-cover opacity-90"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/20" />
+      </div>
+      
+      <div className="relative z-10 w-full max-w-sm space-y-6">
         <div className="text-center space-y-4">
-          <div className="mx-auto w-48 h-48 relative mb-6">
-            <Image src="/logo.png" alt="PP Cup Logo" fill className="object-contain" />
+          <div className="mx-auto w-32 h-32 relative mb-6 drop-shadow-lg">
+            <Image src="/pp-cup-logo.png" alt="PP Cup 2026 Logo" fill className="object-contain" />
           </div>
-          <h1 className="text-3xl font-bold text-slate-800">Golf & Pigeon</h1>
-          <p className="text-slate-600 text-lg">Your premium golf companion</p>
+          <h1 className="text-4xl font-bold text-white drop-shadow-lg">PP CUP 2026</h1>
+          <p className="text-white/90 text-lg drop-shadow-md">Golf Tournament Management</p>
         </div>
 
-        <Card className="border-0 shadow-lg">
+        <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-sm">
           <CardContent className="p-6 space-y-4">
             <form onSubmit={isRegistering ? handleRegister : handleLogin} className="space-y-4">
               {isRegistering && (
@@ -120,7 +132,7 @@ export default function LoginPage() {
                     <input type="checkbox" className="rounded" />
                     <span>Remember me</span>
                   </label>
-                  <a href="#" className="text-green-600 hover:underline">
+                  <a href="#" className="text-green-700 hover:underline hover:text-green-800">
                     Forgot password?
                   </a>
                 </div>
@@ -129,7 +141,7 @@ export default function LoginPage() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-12 bg-green-600 hover:bg-green-700"
+                className="w-full h-12 bg-green-700 hover:bg-green-800 text-white font-semibold shadow-lg"
               >
                 {isLoading ? 'Loading...' : isRegistering ? 'Create Account' : 'Sign In'}
               </Button>
@@ -141,7 +153,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => setIsRegistering(!isRegistering)}
-                className="text-green-600 hover:underline font-medium"
+                className="text-green-700 hover:underline hover:text-green-800 font-medium"
               >
                 {isRegistering ? 'Sign in' : 'Sign up'}
               </button>

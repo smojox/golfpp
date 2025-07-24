@@ -6,8 +6,8 @@ import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Golf & Pigeon - Your Premium Golf Companion',
-  description: 'Track your golf rounds, join tournaments, and compete in style with Golf & Pigeon.',
+  title: 'PP CUP 2026 - Golf Tournament Management',
+  description: 'Official tournament management system for the PP Cup 2026. Track scores, manage tournaments, and compete with fellow golfers.',
 }
 
 export default function RootLayout({
